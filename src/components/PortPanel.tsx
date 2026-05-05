@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { Anchor, MapPin, Ship } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { mockData, type PortRecord } from "@/data";
 import { StatItem } from "./StatItem";
 import { Badge } from "./Badge";
@@ -29,15 +30,19 @@ function PortSummaryCard({
   port,
   active,
   onSelect,
+  onNavigate,
 }: {
   port: PortRecord;
   active: boolean;
   onSelect: () => void;
+  onNavigate: () => void;
 }) {
   return (
     <button
       type="button"
-      onClick={onSelect}
+      onMouseEnter={onSelect}
+      onFocus={onSelect}
+      onClick={onNavigate}
       className={`flex w-full flex-col rounded-xl border bg-[#122B45] p-3.5 text-left transition-all hover:bg-[#14314f] ${
         active
           ? "border-[#1E90FF]/55 shadow-[0_0_0_1px_rgba(30,144,255,0.22),0_14px_34px_-22px_rgba(30,144,255,0.55)] ring-1 ring-[#1E90FF]/20"
@@ -72,6 +77,7 @@ function PortSummaryCard({
 }
 
 export function PortPanel() {
+  const router = useRouter();
   const [region, setRegion] = useState<(typeof REGIONS)[number]["id"]>("all");
   const [selectedId, setSelectedId] = useState<string>("piraeus");
 
@@ -138,6 +144,7 @@ export function PortPanel() {
               port={p}
               active={p.id === selectedId}
               onSelect={() => setSelectedId(p.id)}
+              onNavigate={() => router.push(`/ports/${p.id}`)}
             />
           ))}
         </div>

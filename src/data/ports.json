@@ -10,7 +10,7 @@
     "draftDepthM": 18.5,
     "channelDepthM": 20,
     "portType": "Container, cruise, Ro-Ro, automotive",
-    "annualThroughputTeu": 5650000,
+    "annualThroughputTeu": 4220000,
     "berthsContainer": 62,
     "cranesSts": 24,
     "megaMaxCranes": 8,
@@ -24,7 +24,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory; boarding outer roads",
     "topTrades": ["Asia–EU transshipment", "Balkan feeder hub", "Automotive & machinery"],
-    "routes": ["Piraeus → Rotterdam", "Piraeus → Hamburg", "Piraeus → Alexandria", "Piraeus → Jebel Ali", "Piraeus → Singapore"]
+    "routes": ["Piraeus → Rotterdam", "Piraeus → Hamburg", "Piraeus → Alexandria", "Piraeus → Jebel Ali", "Piraeus → Singapore"],
+    "sources": ["https://www.portseurope.com/piraeus-container-terminal-teu-traffic-dec-2024/"]
   },
   {
     "id": "rotterdam",
@@ -37,7 +38,7 @@
     "draftDepthM": 24,
     "channelDepthM": 25,
     "portType": "Deep-sea container, breakbulk, chemicals",
-    "annualThroughputTeu": 14400000,
+    "annualThroughputTeu": 13800000,
     "berthsContainer": 90,
     "cranesSts": 86,
     "megaMaxCranes": 52,
@@ -51,7 +52,10 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory Maas Approach",
     "topTrades": ["Asia imports", "Scandinavian feeders", "Petrochemical links"],
-    "routes": ["Rotterdam → Singapore", "Rotterdam → Shanghai", "Rotterdam → New York", "Rotterdam → Piraeus", "Rotterdam → Felixstowe"]
+    "routes": ["Rotterdam → Singapore", "Rotterdam → Shanghai", "Rotterdam → New York", "Rotterdam → Piraeus", "Rotterdam → Felixstowe"],
+    "sources": [
+      "https://www.portofrotterdam.com/en/news-and-press-releases/cargo-throughput-port-rotterdam-slightly-decreased-2024"
+    ]
   },
   {
     "id": "hamburg",
@@ -64,7 +68,7 @@
     "draftDepthM": 15.2,
     "channelDepthM": 17.4,
     "portType": "Container, reefer, Ro-Ro",
-    "annualThroughputTeu": 8200000,
+    "annualThroughputTeu": 7800000,
     "berthsContainer": 48,
     "cranesSts": 52,
     "megaMaxCranes": 18,
@@ -78,7 +82,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory Elbe pilots",
     "topTrades": ["CEE rail shuttle", "Reefer proteins", "Automotive parts"],
-    "routes": ["Hamburg → Shanghai", "Hamburg → Jebel Ali", "Hamburg → Rotterdam", "Hamburg → Gdansk", "Hamburg → New York"]
+    "routes": ["Hamburg → Shanghai", "Hamburg → Jebel Ali", "Hamburg → Rotterdam", "Hamburg → Gdansk", "Hamburg → New York"],
+    "sources": ["https://www.hafen-hamburg.de/en/press1/media/charts-annual-throughput-2024/"]
   },
   {
     "id": "antwerp",
@@ -105,7 +110,10 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory Scheldt",
     "topTrades": ["Chemical parcels", "Africa feeders", "UK shortsea"],
-    "routes": ["Antwerp → Lagos", "Antwerp → New York", "Antwerp → Singapore", "Antwerp → Piraeus", "Antwerp → Santos"]
+    "routes": ["Antwerp → Lagos", "Antwerp → New York", "Antwerp → Singapore", "Antwerp → Piraeus", "Antwerp → Santos"],
+    "sources": [
+      "https://www.portofantwerpbruges.com/en/faq/how-many-containers-are-handled-annually-port-antwerp-bruges"
+    ]
   },
   {
     "id": "felixstowe",
@@ -118,7 +126,7 @@
     "draftDepthM": 18,
     "channelDepthM": 18.7,
     "portType": "Container specialist",
-    "annualThroughputTeu": 3900000,
+    "annualThroughputTeu": 3246000,
     "berthsContainer": 17,
     "cranesSts": 42,
     "megaMaxCranes": 14,
@@ -132,7 +140,11 @@
     "freeTradeZone": false,
     "pilotage": "Harwich pilots",
     "topTrades": ["Far East imports", "Irish Sea feeders", "Retail peak season"],
-    "routes": ["Felixstowe → Singapore", "Felixstowe → Rotterdam", "Felixstowe → New York", "Felixstowe → Le Havre", "Felixstowe → Dublin"]
+    "routes": ["Felixstowe → Singapore", "Felixstowe → Rotterdam", "Felixstowe → New York", "Felixstowe → Le Havre", "Felixstowe → Dublin"],
+    "sources": [
+      "https://www.parallelparliament.co.uk/question/65969/port-of-felixstowe-freight",
+      "https://en.wikipedia.org/wiki/Port_of_Felixstowe"
+    ]
   },
   {
     "id": "valencia",
@@ -145,7 +157,7 @@
     "draftDepthM": 16,
     "channelDepthM": 17,
     "portType": "Container, cruise, project cargo",
-    "annualThroughputTeu": 5500000,
+    "annualThroughputTeu": 5660000,
     "berthsContainer": 38,
     "cranesSts": 44,
     "megaMaxCranes": 12,
@@ -159,7 +171,10 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["North Africa feeders", "Latin America fruit", "Iberian industry"],
-    "routes": ["Valencia → Casablanca", "Valencia → Santos", "Valencia → Genoa", "Valencia → New York", "Valencia → Jeddah"]
+    "routes": ["Valencia → Casablanca", "Valencia → Santos", "Valencia → Genoa", "Valencia → New York", "Valencia → Jeddah"],
+    "sources": [
+      "https://www.valenciaport.com/en/the-apv-council-assesses-the-economic-results-and-traffic-figures-for-2025/"
+    ]
   },
   {
     "id": "genoa",
@@ -172,7 +187,7 @@
     "draftDepthM": 15,
     "channelDepthM": 16,
     "portType": "Container, ferry, steel & breakbulk",
-    "annualThroughputTeu": 2600000,
+    "annualThroughputTeu": 2820000,
     "berthsContainer": 22,
     "cranesSts": 28,
     "megaMaxCranes": 6,
@@ -186,7 +201,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Tyrrhenian feeders", "Steel coils", "Mediterranean shortsea"],
-    "routes": ["Genoa → Barcelona", "Genoa → Alexandria", "Genoa → Istanbul", "Genoa → Tangier", "Genoa → Novorossiysk"]
+    "routes": ["Genoa → Barcelona", "Genoa → Alexandria", "Genoa → Istanbul", "Genoa → Tangier", "Genoa → Novorossiysk"],
+    "sources": ["https://www.portsofgenoa.com/it/magazine/news/traffici-2024,-in-crescita-i-ports-of-genoa.html"]
   },
   {
     "id": "marseille",
@@ -213,7 +229,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["North Africa Ro-Ro", "Hydrocarbons", "West Africa project cargo"],
-    "routes": ["Marseille → Algiers", "Marseille → Alexandria", "Marseille → Shanghai", "Marseille → Montreal", "Marseille → Dakar"]
+    "routes": ["Marseille → Algiers", "Marseille → Alexandria", "Marseille → Shanghai", "Marseille → Montreal", "Marseille → Dakar"],
+    "sources": ["https://www.marseille-port.fr/en/actualites/resultats-annuels-2024"]
   },
   {
     "id": "gdansk",
@@ -226,7 +243,7 @@
     "draftDepthM": 17,
     "channelDepthM": 17.5,
     "portType": "Container, Ro-Ro, bulk",
-    "annualThroughputTeu": 2100000,
+    "annualThroughputTeu": 2250000,
     "berthsContainer": 12,
     "cranesSts": 16,
     "megaMaxCranes": 10,
@@ -240,7 +257,10 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory Gulf of Gdańsk",
     "topTrades": ["Asia–Baltic relay", "Scandinavian feeders", "Wind components"],
-    "routes": ["Gdańsk → Rotterdam", "Gdańsk → Hamburg", "Gdańsk → Shanghai", "Gdańsk → Bremerhaven", "Gdańsk → UK east coast"]
+    "routes": ["Gdańsk → Rotterdam", "Gdańsk → Hamburg", "Gdańsk → Shanghai", "Gdańsk → Bremerhaven", "Gdańsk → UK east coast"],
+    "sources": [
+      "https://www.portgdansk.pl/en/events/port-of-gdansk-finishes-2024-with-a-record-financial-result/"
+    ]
   },
   {
     "id": "alexandria",
@@ -253,7 +273,7 @@
     "draftDepthM": 14.5,
     "channelDepthM": 15,
     "portType": "Container, breakbulk, grain",
-    "annualThroughputTeu": 1800000,
+    "annualThroughputTeu": 1496462,
     "berthsContainer": 18,
     "cranesSts": 22,
     "megaMaxCranes": 4,
@@ -267,7 +287,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["EU shortsea", "Red Sea transship", "Food imports"],
-    "routes": ["Alexandria → Piraeus", "Alexandria → Genoa", "Alexandria → Jeddah", "Alexandria → Istanbul", "Alexandria → Valencia"]
+    "routes": ["Alexandria → Piraeus", "Alexandria → Genoa", "Alexandria → Jeddah", "Alexandria → Istanbul", "Alexandria → Valencia"],
+    "sources": ["https://alexcont.com/statistics/"]
   },
   {
     "id": "port-said",
@@ -280,7 +301,7 @@
     "draftDepthM": 18,
     "channelDepthM": 19,
     "portType": "Transshipment container",
-    "annualThroughputTeu": 4200000,
+    "annualThroughputTeu": 3540265,
     "berthsContainer": 28,
     "cranesSts": 36,
     "megaMaxCranes": 14,
@@ -294,7 +315,8 @@
     "freeTradeZone": false,
     "pilotage": "Suez Canal pilots",
     "topTrades": ["Asia–Med relay", "East Africa strings", "Blank sailings buffer"],
-    "routes": ["Port Said → Rotterdam", "Port Said → Jeddah", "Port Said → Singapore", "Port Said → Piraeus", "Port Said → Djibouti"]
+    "routes": ["Port Said → Rotterdam", "Port Said → Jeddah", "Port Said → Singapore", "Port Said → Piraeus", "Port Said → Djibouti"],
+    "sources": ["https://www.portseurope.com/suez-canal-container-terminal-s-a-e-teu-handled-2024/"]
   },
   {
     "id": "tangier-med",
@@ -307,7 +329,7 @@
     "draftDepthM": 19,
     "channelDepthM": 20,
     "portType": "Container, Ro-Ro, vehicles",
-    "annualThroughputTeu": 7600000,
+    "annualThroughputTeu": 10240000,
     "berthsContainer": 36,
     "cranesSts": 48,
     "megaMaxCranes": 22,
@@ -321,7 +343,10 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["West Africa relay", "Automotive exports", "Iberian feeders"],
-    "routes": ["Tanger Med → Santos", "Tanger Med → Algeciras", "Tanger Med → New York", "Tanger Med → Lagos", "Tanger Med → Halifax"]
+    "routes": ["Tanger Med → Santos", "Tanger Med → Algeciras", "Tanger Med → New York", "Tanger Med → Lagos", "Tanger Med → Halifax"],
+    "sources": [
+      "https://www.tangermed.ma/en/tanger-med-passes-the-10-million-container-mark/"
+    ]
   },
   {
     "id": "durban",
@@ -348,7 +373,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Indian Ocean strings", "Mining equipment", "Horticulture exports"],
-    "routes": ["Durban → Singapore", "Durban → Jebel Ali", "Durban → Santos", "Durban → Fremantle", "Durban → Mombasa"]
+    "routes": ["Durban → Singapore", "Durban → Jebel Ali", "Durban → Santos", "Durban → Fremantle", "Durban → Mombasa"],
+    "sources": ["https://content.ballastmarkets.com/ports/durban/"]
   },
   {
     "id": "jebel-ali",
@@ -361,7 +387,7 @@
     "draftDepthM": 17,
     "channelDepthM": 17.5,
     "portType": "Container, Ro-Ro, logistics city",
-    "annualThroughputTeu": 13700000,
+    "annualThroughputTeu": 15500000,
     "berthsContainer": 102,
     "cranesSts": 110,
     "megaMaxCranes": 36,
@@ -375,7 +401,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["Indian Subcontinent relay", "East Africa feeders", "Project oil & gas"],
-    "routes": ["Jebel Ali → Mumbai", "Jebel Ali → Karachi", "Jebel Ali → Mombasa", "Jebel Ali → Rotterdam", "Jebel Ali → Shanghai"]
+    "routes": ["Jebel Ali → Mumbai", "Jebel Ali → Karachi", "Jebel Ali → Mombasa", "Jebel Ali → Rotterdam", "Jebel Ali → Shanghai"],
+    "sources": ["https://www.dpworld.com/en/news/releases/uae/dp-world-records-highest-cargo-volumes-at-jebel-ali-port-since-2015"]
   },
   {
     "id": "khalifa",
@@ -402,7 +429,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["GCC coastal feeders", "US–Gulf strings", "Industrial projects"],
-    "routes": ["Khalifa → Jeddah", "Khalifa → Karachi", "Khalifa → Singapore", "Khalifa → Houston", "Khalifa → Djibouti"]
+    "routes": ["Khalifa → Jeddah", "Khalifa → Karachi", "Khalifa → Singapore", "Khalifa → Houston", "Khalifa → Djibouti"],
+    "sources": ["https://www.adports.ae/ports-terminals/commercial-ports/khalifa-port/"]
   },
   {
     "id": "jeddah",
@@ -429,7 +457,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["East Africa relay", "Food security imports", "Construction boom cargo"],
-    "routes": ["Jeddah → Port Said", "Jeddah → Djibouti", "Jeddah → Singapore", "Jeddah → Karachi", "Jeddah → Barcelona"]
+    "routes": ["Jeddah → Port Said", "Jeddah → Djibouti", "Jeddah → Singapore", "Jeddah → Karachi", "Jeddah → Barcelona"],
+    "sources": ["https://www.stats.gov.sa/documents/20117/2435281/Maritime+Transport+Statistics+Publication+2024+-+EN.pdf"]
   },
   {
     "id": "colombo",
@@ -442,7 +471,7 @@
     "draftDepthM": 18,
     "channelDepthM": 20,
     "portType": "Transshipment container",
-    "annualThroughputTeu": 7200000,
+    "annualThroughputTeu": 7780000,
     "berthsContainer": 34,
     "cranesSts": 42,
     "megaMaxCranes": 18,
@@ -456,7 +485,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["India coastal relay", "Africa east coast", "Textile machinery"],
-    "routes": ["Colombo → Singapore", "Colombo → Dubai", "Colombo → Mundra", "Colombo → Durban", "Colombo → Sydney"]
+    "routes": ["Colombo → Singapore", "Colombo → Dubai", "Colombo → Mundra", "Colombo → Durban", "Colombo → Sydney"],
+    "sources": ["https://www.porttechnology.org/news/slpa-records-highest-container-volume-throughput-in-2024/"]
   },
   {
     "id": "singapore",
@@ -469,7 +499,7 @@
     "draftDepthM": 21,
     "channelDepthM": 23,
     "portType": "Container, ship repair, LNG bunkering",
-    "annualThroughputTeu": 37500000,
+    "annualThroughputTeu": 41120000,
     "berthsContainer": 120,
     "cranesSts": 200,
     "megaMaxCranes": 80,
@@ -483,7 +513,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory port limits",
     "topTrades": ["Global relay", "Intra-Asia feeders", "Electronics precision"],
-    "routes": ["Singapore → Rotterdam", "Singapore → Los Angeles", "Singapore → Sydney", "Singapore → Jebel Ali", "Singapore → Busan"]
+    "routes": ["Singapore → Rotterdam", "Singapore → Los Angeles", "Singapore → Sydney", "Singapore → Jebel Ali", "Singapore → Busan"],
+    "sources": ["https://www.mpa.gov.sg/media-centre/details/strong-growth-momentum-for-maritime-singapore"]
   },
   {
     "id": "port-klang",
@@ -496,7 +527,7 @@
     "draftDepthM": 17,
     "channelDepthM": 18,
     "portType": "Container, conventional, liquid bulk",
-    "annualThroughputTeu": 13200000,
+    "annualThroughputTeu": 14640000,
     "berthsContainer": 56,
     "cranesSts": 62,
     "megaMaxCranes": 20,
@@ -510,7 +541,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["ASEAN distribution", "China coastal relay", "Palm oil exports"],
-    "routes": ["Port Klang → Singapore", "Port Klang → Colombo", "Port Klang → Hong Kong", "Port Klang → Fremantle", "Port Klang → Chennai"]
+    "routes": ["Port Klang → Singapore", "Port Klang → Colombo", "Port Klang → Hong Kong", "Port Klang → Fremantle", "Port Klang → Chennai"],
+    "sources": ["https://www.bernama.com/lite/news.php?id=2462847"]
   },
   {
     "id": "tanjung-pelepas",
@@ -523,7 +555,7 @@
     "draftDepthM": 19,
     "channelDepthM": 20,
     "portType": "Transshipment container",
-    "annualThroughputTeu": 11200000,
+    "annualThroughputTeu": 12253309,
     "berthsContainer": 38,
     "cranesSts": 52,
     "megaMaxCranes": 24,
@@ -537,7 +569,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["2M alliance hub", "Indonesia feeders", "Empty repositioning"],
-    "routes": ["Tanjung Pelepas → Singapore", "Tanjung Pelepas → Sydney", "Tanjung Pelepas → Chennai", "Tanjung Pelepas → Rotterdam", "Tanjung Pelepas → Los Angeles"]
+    "routes": ["Tanjung Pelepas → Singapore", "Tanjung Pelepas → Sydney", "Tanjung Pelepas → Chennai", "Tanjung Pelepas → Rotterdam", "Tanjung Pelepas → Los Angeles"],
+    "sources": ["https://www.ptp.com.my/media-hub/news/ptp-1st-container-terminal-in-malaysia-to-surpass"]
   },
   {
     "id": "shanghai",
@@ -550,7 +583,7 @@
     "draftDepthM": 15,
     "channelDepthM": 17.5,
     "portType": "Container, bulk, cruise",
-    "annualThroughputTeu": 49000000,
+    "annualThroughputTeu": 50000000,
     "berthsContainer": 140,
     "cranesSts": 160,
     "megaMaxCranes": 55,
@@ -564,7 +597,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory Yangtze pilots",
     "topTrades": ["Transpacific exports", "EU imports", "Domestic coastal"],
-    "routes": ["Shanghai → Los Angeles", "Shanghai → Rotterdam", "Shanghai → Singapore", "Shanghai → Busan", "Shanghai → Melbourne"]
+    "routes": ["Shanghai → Los Angeles", "Shanghai → Rotterdam", "Shanghai → Singapore", "Shanghai → Busan", "Shanghai → Melbourne"],
+    "sources": ["https://en.portshanghai.com.cn/LatestNews/4310.jhtml"]
   },
   {
     "id": "ningbo",
@@ -577,7 +611,7 @@
     "draftDepthM": 22.5,
     "channelDepthM": 23,
     "portType": "Container, dry bulk, crude",
-    "annualThroughputTeu": 33000000,
+    "annualThroughputTeu": 39300000,
     "berthsContainer": 88,
     "cranesSts": 96,
     "megaMaxCranes": 42,
@@ -591,7 +625,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["USWC strings", "Iron ore transship", "Chemical parcels"],
-    "routes": ["Ningbo → Long Beach", "Ningbo → Hamburg", "Ningbo → Sydney", "Ningbo → Singapore", "Ningbo → Dubai"]
+    "routes": ["Ningbo → Long Beach", "Ningbo → Hamburg", "Ningbo → Sydney", "Ningbo → Singapore", "Ningbo → Dubai"],
+    "sources": ["https://english.news.cn/20250118/20c2696f693149f6a4956e8c447748b6/c.html"]
   },
   {
     "id": "hong-kong",
@@ -604,7 +639,7 @@
     "draftDepthM": 17,
     "channelDepthM": 18,
     "portType": "Container, mid-stream, cruise",
-    "annualThroughputTeu": 18000000,
+    "annualThroughputTeu": 13690000,
     "berthsContainer": 48,
     "cranesSts": 56,
     "megaMaxCranes": 18,
@@ -618,7 +653,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Pearl River Delta feeders", "Transpacific relay", "Reefer proteins"],
-    "routes": ["Hong Kong → Shanghai", "Hong Kong → Singapore", "Hong Kong → Los Angeles", "Hong Kong → Kaohsiung", "Hong Kong → Sydney"]
+    "routes": ["Hong Kong → Shanghai", "Hong Kong → Singapore", "Hong Kong → Los Angeles", "Hong Kong → Kaohsiung", "Hong Kong → Sydney"],
+    "sources": ["https://www.hkmpdb.gov.hk/document/summary_statistics_Dec2024.pdf"]
   },
   {
     "id": "busan",
@@ -631,7 +667,7 @@
     "draftDepthM": 18,
     "channelDepthM": 19,
     "portType": "Container, shipbuilding logistics",
-    "annualThroughputTeu": 22700000,
+    "annualThroughputTeu": 24400000,
     "berthsContainer": 64,
     "cranesSts": 72,
     "megaMaxCranes": 28,
@@ -645,7 +681,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Japan feeders", "Russian Far East relay", "Automotive parts"],
-    "routes": ["Busan → Shanghai", "Busan → Los Angeles", "Busan → Rotterdam", "Busan → Singapore", "Busan → Vladivostok"]
+    "routes": ["Busan → Shanghai", "Busan → Los Angeles", "Busan → Rotterdam", "Busan → Singapore", "Busan → Vladivostok"],
+    "sources": ["https://www.mof.go.kr/doc/ko/selectDoc.do?bbsSeq=10&docSeq=60146&menuSeq=971"]
   },
   {
     "id": "tokyo-yokohama",
@@ -658,7 +695,7 @@
     "draftDepthM": 16,
     "channelDepthM": 17,
     "portType": "Container, Ro-Ro, breakbulk",
-    "annualThroughputTeu": 5100000,
+    "annualThroughputTeu": 3075369,
     "berthsContainer": 28,
     "cranesSts": 32,
     "megaMaxCranes": 10,
@@ -672,7 +709,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory Tokyo Bay",
     "topTrades": ["Transpacific imports", "Parts for ASEAN", "Precision electronics"],
-    "routes": ["Yokohama → Los Angeles", "Yokohama → Singapore", "Yokohama → Sydney", "Yokohama → Vancouver", "Yokohama → Busan"]
+    "routes": ["Yokohama → Los Angeles", "Yokohama → Singapore", "Yokohama → Sydney", "Yokohama → Vancouver", "Yokohama → Busan"],
+    "sources": ["https://www.city.yokohama.lg.jp/lang/overseas/port/tokei/statistics.html"]
   },
   {
     "id": "sydney",
@@ -699,7 +737,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Asia consumer goods", "Wine exports", "Mining consumables"],
-    "routes": ["Sydney → Singapore", "Sydney → Shanghai", "Sydney → Auckland", "Sydney → Los Angeles", "Sydney → Busan"]
+    "routes": ["Sydney → Singapore", "Sydney → Shanghai", "Sydney → Auckland", "Sydney → Los Angeles", "Sydney → Busan"],
+    "sources": ["https://www.nswports.com.au/port-botany"]
   },
   {
     "id": "los-angeles",
@@ -712,7 +751,7 @@
     "draftDepthM": 16,
     "channelDepthM": 17,
     "portType": "Container, cruise",
-    "annualThroughputTeu": 9900000,
+    "annualThroughputTeu": 10297352,
     "berthsContainer": 28,
     "cranesSts": 82,
     "megaMaxCranes": 24,
@@ -726,7 +765,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Asia imports", "Mexico transload", "Retail peak"],
-    "routes": ["Los Angeles → Shanghai", "Los Angeles → Busan", "Los Angeles → Oakland", "Los Angeles → Seattle", "Los Angeles → Rotterdam"]
+    "routes": ["Los Angeles → Shanghai", "Los Angeles → Busan", "Los Angeles → Oakland", "Los Angeles → Seattle", "Los Angeles → Rotterdam"],
+    "sources": ["https://www.portoflosangeles.org/Business/statistics/Container-Statistics/Historical-TEU-Statistics-2024"]
   },
   {
     "id": "long-beach",
@@ -739,7 +779,7 @@
     "draftDepthM": 16,
     "channelDepthM": 17,
     "portType": "Container",
-    "annualThroughputTeu": 9100000,
+    "annualThroughputTeu": 9600000,
     "berthsContainer": 22,
     "cranesSts": 72,
     "megaMaxCranes": 22,
@@ -753,7 +793,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Transpacific imports", "IPI rail to Chicago", "Batteries & hazmat"],
-    "routes": ["Long Beach → Tokyo", "Long Beach → Singapore", "Long Beach → Vancouver", "Long Beach → Savannah", "Long Beach → Hong Kong"]
+    "routes": ["Long Beach → Tokyo", "Long Beach → Singapore", "Long Beach → Vancouver", "Long Beach → Savannah", "Long Beach → Hong Kong"],
+    "sources": ["https://polb.com/port-info/news-and-press/port-of-long-beach-achieves-busiest-november-12-17-2024/"]
   },
   {
     "id": "new-york",
@@ -766,7 +807,7 @@
     "draftDepthM": 15,
     "channelDepthM": 16,
     "portType": "Container, breakbulk",
-    "annualThroughputTeu": 7800000,
+    "annualThroughputTeu": 8900000,
     "berthsContainer": 32,
     "cranesSts": 68,
     "megaMaxCranes": 18,
@@ -780,7 +821,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory Ambrose",
     "topTrades": ["Asia–USEC", "Mediterranean strings", "Perishables"],
-    "routes": ["New York → Rotterdam", "New York → Singapore", "New York → Savannah", "New York → Halifax", "New York → Santos"]
+    "routes": ["New York → Rotterdam", "New York → Singapore", "New York → Savannah", "New York → Halifax", "New York → Santos"],
+    "sources": ["https://cw-prod-apacgws-a-cd.cushwake.com/en/united-states/insights/the-port-of-new-york-and-new-jersey-overview"]
   },
   {
     "id": "savannah",
@@ -793,7 +835,7 @@
     "draftDepthM": 14.6,
     "channelDepthM": 15.5,
     "portType": "Container, forest products",
-    "annualThroughputTeu": 4600000,
+    "annualThroughputTeu": 5600000,
     "berthsContainer": 18,
     "cranesSts": 36,
     "megaMaxCranes": 14,
@@ -807,7 +849,8 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Asia USEC diversion", "Retail distribution", "Kaolin exports"],
-    "routes": ["Savannah → Shanghai", "Savannah → Antwerp", "Savannah → Charleston", "Savannah → Miami", "Savannah → Santos"]
+    "routes": ["Savannah → Shanghai", "Savannah → Antwerp", "Savannah → Charleston", "Savannah → Miami", "Savannah → Santos"],
+    "sources": ["https://gaports.com/events/state-of-the-port/"]
   },
   {
     "id": "vancouver",
@@ -820,7 +863,7 @@
     "draftDepthM": 16.5,
     "channelDepthM": 17.5,
     "portType": "Container, bulk, cruise",
-    "annualThroughputTeu": 3600000,
+    "annualThroughputTeu": 3470000,
     "berthsContainer": 16,
     "cranesSts": 28,
     "megaMaxCranes": 10,
@@ -834,7 +877,10 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Asia imports", "Potash exports", "Forestry products"],
-    "routes": ["Vancouver → Shanghai", "Vancouver → Busan", "Vancouver → Los Angeles", "Vancouver → Tokyo", "Vancouver → Prince Rupert"]
+    "routes": ["Vancouver → Shanghai", "Vancouver → Busan", "Vancouver → Los Angeles", "Vancouver → Tokyo", "Vancouver → Prince Rupert"],
+    "sources": [
+      "https://www.portvancouver.com/sites/default/files/2025-03/2025-03-07%202024%20Key%20facts%20brochure_EN-web.pdf"
+    ]
   },
   {
     "id": "santos",
@@ -847,7 +893,7 @@
     "draftDepthM": 15,
     "channelDepthM": 16,
     "portType": "Container, sugar, juice",
-    "annualThroughputTeu": 4300000,
+    "annualThroughputTeu": 5400000,
     "berthsContainer": 26,
     "cranesSts": 32,
     "megaMaxCranes": 10,
@@ -861,7 +907,10 @@
     "freeTradeZone": false,
     "pilotage": "Compulsory",
     "topTrades": ["Asia exports", "Soy containerized", "Chemicals"],
-    "routes": ["Santos → Shanghai", "Santos → Rotterdam", "Santos → Miami", "Santos → Buenos Aires", "Santos → Cape Town"]
+    "routes": ["Santos → Shanghai", "Santos → Rotterdam", "Santos → Miami", "Santos → Buenos Aires", "Santos → Cape Town"],
+    "sources": [
+      "https://www.gov.br/portos-e-aeroportos/pt-br/assuntos/noticias/2024/10/porto-de-santos-bate-novo-recorde-na-movimentacao-de-conteineres"
+    ]
   },
   {
     "id": "cartagena",
@@ -874,7 +923,7 @@
     "draftDepthM": 15.8,
     "channelDepthM": 16.5,
     "portType": "Container, cruise",
-    "annualThroughputTeu": 3400000,
+    "annualThroughputTeu": 3702044,
     "berthsContainer": 18,
     "cranesSts": 24,
     "megaMaxCranes": 8,
@@ -888,7 +937,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["Central America relay", "Andean exports", "US Gulf feeders"],
-    "routes": ["Cartagena → Kingston", "Cartagena → Miami", "Cartagena → Santos", "Cartagena → Rotterdam", "Cartagena → Veracruz"]
+    "routes": ["Cartagena → Kingston", "Cartagena → Miami", "Cartagena → Santos", "Cartagena → Rotterdam", "Cartagena → Veracruz"],
+    "sources": ["https://www.puertocartagena.com/es/sala-de-prensa/noticias/record-historico-gpc-2024"]
   },
   {
     "id": "sohar",
@@ -901,7 +951,7 @@
     "draftDepthM": 18,
     "channelDepthM": 19.5,
     "portType": "Modern industrial, container, bulk",
-    "annualThroughputTeu": 3000000,
+    "annualThroughputTeu": 943000,
     "berthsContainer": 20,
     "cranesSts": 14,
     "megaMaxCranes": 6,
@@ -915,7 +965,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory; boarding outer roads",
     "topTrades": ["GCC distribution", "Metals & bulk", "Asia–Middle East relay"],
-    "routes": ["Sohar → Piraeus", "Sohar → Rotterdam", "Sohar → Jebel Ali", "Sohar → Mumbai"]
+    "routes": ["Sohar → Piraeus", "Sohar → Rotterdam", "Sohar → Jebel Ali", "Sohar → Mumbai"],
+    "sources": ["https://mtcit.gov.om/media-4/news-announcements-11/news-85/omani-ports-boost-economy-with-137m-tons-and-4-2m-teus-handled-in-2024-183"]
   },
   {
     "id": "salalah",
@@ -928,7 +979,7 @@
     "draftDepthM": 18,
     "channelDepthM": 18.5,
     "portType": "Deep-sea container transshipment, general cargo",
-    "annualThroughputTeu": 4000000,
+    "annualThroughputTeu": 3300000,
     "berthsContainer": 22,
     "cranesSts": 20,
     "megaMaxCranes": 10,
@@ -942,7 +993,8 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["Asia–EU transshipment", "East Africa feeders", "GCC relay"],
-    "routes": ["Salalah → Piraeus", "Salalah → Rotterdam", "Salalah → Jebel Ali", "Salalah → Durban"]
+    "routes": ["Salalah → Piraeus", "Salalah → Rotterdam", "Salalah → Jebel Ali", "Salalah → Durban"],
+    "sources": ["https://salalahport.com.om/port-statistics"]
   },
   {
     "id": "duqm",
@@ -969,6 +1021,7 @@
     "freeTradeZone": true,
     "pilotage": "Compulsory",
     "topTrades": ["Project cargo", "Bulk commodities", "GCC feeder expansion"],
-    "routes": ["Duqm → Piraeus", "Duqm → Hamburg", "Duqm → Jebel Ali", "Duqm → Karachi"]
+    "routes": ["Duqm → Piraeus", "Duqm → Hamburg", "Duqm → Jebel Ali", "Duqm → Karachi"],
+    "sources": ["https://www.omanobserver.om/article/1178230/business/duqm-port-cargo-surges-152-in-2024"]
   }
 ]
