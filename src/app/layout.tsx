@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { DevHydrationErrorFilter } from "@/components/DevHydrationErrorFilter";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,7 +26,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} h-full w-full antialiased`}
     >
-      <body className="min-h-full w-full min-w-0 overflow-x-hidden font-sans">
+      <body
+        suppressHydrationWarning
+        className="min-h-full w-full min-w-0 overflow-x-hidden font-sans"
+      >
+        <DevHydrationErrorFilter />
         {children}
       </body>
     </html>

@@ -4,7 +4,6 @@ import { AISearchBar } from "@/components/AISearchBar";
 import { DashboardSection } from "@/components/DashboardSection";
 import { ResultsGrid } from "@/components/ResultsGrid";
 import { PortPanel } from "@/components/PortPanel";
-import { AIAssistantPanel } from "@/components/AIAssistantPanel";
 
 export default function Home() {
   return (
@@ -20,7 +19,6 @@ export default function Home() {
         </div>
         <div id="pricing" className="h-px w-full scroll-mt-24 opacity-0" aria-hidden />
       </main>
-      <AIAssistantPanel />
     </div>
   );
 }
