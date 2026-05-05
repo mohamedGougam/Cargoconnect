@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b1f33;
+  --foreground: #e8eef5;
+  --accent: #1e90ff;
+  --accent-teal: #2dd4bf;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, #1e90ff 35%, transparent);
+  color: #fff;
+}
+
+/* --- Maritime map (RealRouteMap): lightweight CSS motion --- */
+
+.cc-map-atmosphere-gradient {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 189, 248, 0.08) 0%,
+    transparent 40%,
+    rgba(3, 10, 18, 0.52) 100%
+  );
+}
+
+.cc-map-atmosphere-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.38;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+.leaflet-overlay-pane svg path.cc-route-base {
+  transition:
+    stroke-opacity 0.2s ease,
+    stroke-width 0.2s ease;
+}
+
+.leaflet-overlay-pane svg path.cc-route-flow {
+  animation: cc-route-dash-flow 18s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.leaflet-overlay-pane svg path.cc-route-flow--slow {
+  animation-duration: 22s;
+}
+
+.leaflet-overlay-pane svg path.cc-route-flow--context {
+  animation-duration: 28s;
+}
+
+@keyframes cc-route-dash-flow {
+  to {
+    stroke-dashoffset: -110;
+  }
+}
+
+.leaflet-overlay-pane svg path.cc-port-glow {
+  transition: fill-opacity 0.2s ease;
+  filter: drop-shadow(0 0 4px rgba(45, 212, 191, 0.35));
+}
+
+.leaflet-overlay-pane svg path.cc-port-glow--primary {
+  animation: cc-port-glow-pulse 2.5s ease-in-out infinite;
+}
+
+.leaflet-overlay-pane svg path.cc-port-glow--secondary {
+  animation: cc-port-glow-pulse-sec 2.8s ease-in-out infinite;
+}
+
+.leaflet-overlay-pane svg path.cc-port-glow--minor {
+  animation: cc-port-glow-pulse-min 3.1s ease-in-out infinite;
+}
+
+@keyframes cc-port-glow-pulse {
+  0%,
+  100% {
+    fill-opacity: 0.22;
+  }
+  50% {
+    fill-opacity: 0.4;
+  }
+}
+
+@keyframes cc-port-glow-pulse-sec {
+  0%,
+  100% {
+    fill-opacity: 0.18;
+  }
+  50% {
+    fill-opacity: 0.34;
+  }
+}
+
+@keyframes cc-port-glow-pulse-min {
+  0%,
+  100% {
+    fill-opacity: 0.14;
+  }
+  50% {
+    fill-opacity: 0.28;
+  }
+}
+
+.cc-leaflet-html-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.cc-vessel-stack {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5eead4;
+  filter: drop-shadow(0 0 7px rgba(45, 212, 191, 0.72));
+  animation: cc-vessel-glow-pulse 2.4s ease-in-out infinite;
+}
+
+.cc-vessel-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.cc-vessel-trail {
+  position: absolute;
+  right: 100%;
+  margin-right: -3px;
+  top: 50%;
+  width: 16px;
+  height: 3px;
+  transform: translateY(-50%);
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.45));
+  pointer-events: none;
+}
+
+.cc-vessel-svg {
+  display: block;
+  color: #5eead4;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.65));
+}
+
+.cc-route-flow-dot {
+  width: 7px;
+  height: 7px;
+  margin: 2.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e0fafe 0%, #22d3ee 50%, transparent 72%);
+  box-shadow:
+    0 0 10px rgba(34, 211, 238, 0.9),
+    0 0 4px rgba(45, 212, 191, 0.75);
+}
+
+@keyframes cc-vessel-glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(45, 212, 191, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(45, 212, 191, 0.95));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-overlay-pane svg path.cc-route-flow,
+  .leaflet-overlay-pane svg path.cc-route-flow--slow,
+  .leaflet-overlay-pane svg path.cc-route-flow--context {
+    animation: none;
+  }
+
+  .leaflet-overlay-pane svg path.cc-port-glow--primary,
+  .leaflet-overlay-pane svg path.cc-port-glow--secondary,
+  .leaflet-overlay-pane svg path.cc-port-glow--minor {
+    animation: none;
+  }
+
+  .cc-vessel-stack {
+    animation: none;
+  }
+}

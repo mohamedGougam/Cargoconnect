@@ -1,0 +1,80 @@
+{
+  "matchSummary": {
+    "route": { "from": "Piraeus", "to": "Rotterdam" },
+    "estimatedCostUsd": 47200,
+    "estimatedDurationDays": 4.2,
+    "riskLevel": "Low",
+    "carbonEfficiency": "A-",
+    "matchScore": 92
+  },
+  "insights": [
+    "Optimize route for cost",
+    "Reduce transit time by 12%",
+    "Suggest alternative port (Marseille)",
+    "Underutilized vessel available nearby"
+  ],
+  "vessels": [
+    {
+      "id": "1",
+      "name": "Aegean Carrier",
+      "type": "Panamax Container",
+      "capacityTeu": 4200,
+      "currentPort": "Piraeus",
+      "routeCompatibility": "Direct",
+      "departureDate": "2026-05-08",
+      "estimatedPriceUsd": 46800,
+      "matchScore": 94,
+      "badges": ["Best Match", "Eco-efficient"]
+    },
+    {
+      "id": "2",
+      "name": "MedLink Vessel",
+      "type": "Feeder",
+      "capacityTeu": 1800,
+      "currentPort": "Alexandria",
+      "routeCompatibility": "Transship",
+      "departureDate": "2026-05-09",
+      "estimatedPriceUsd": 44100,
+      "matchScore": 88,
+      "badges": ["Small Vessel Friendly"]
+    },
+    {
+      "id": "3",
+      "name": "BlueRoute Express",
+      "type": "Post-Panamax",
+      "capacityTeu": 8500,
+      "currentPort": "Rotterdam",
+      "routeCompatibility": "Return leg",
+      "departureDate": "2026-05-11",
+      "estimatedPriceUsd": 51200,
+      "matchScore": 86,
+      "badges": ["Fastest Route"]
+    },
+    {
+      "id": "4",
+      "name": "Nordic Freight Line",
+      "type": "Neo-Panamax",
+      "capacityTeu": 6200,
+      "currentPort": "Hamburg",
+      "routeCompatibility": "Hub align",
+      "departureDate": "2026-05-10",
+      "estimatedPriceUsd": 48900,
+      "matchScore": 90,
+      "badges": ["Eco-efficient", "Fastest Route"]
+    }
+  ],
+  "filterChips": [
+    "Departure Port",
+    "Destination Port",
+    "Cargo Type",
+    "Vessel Capacity",
+    "Budget",
+    "Time Window"
+  ],
+  "assistantPrompts": [
+    "Find lowest cost route",
+    "Compare ports by waiting time",
+    "Show small cargo vessels",
+    "Optimize for speed"
+  ]
+}
