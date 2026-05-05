@@ -10,6 +10,7 @@ type Intent =
   | { kind: "compare"; ports: PortRecord[] }
   | { kind: "field"; ports: PortRecord[]; field: FieldKey }
   | { kind: "filter"; ports: PortRecord[]; filter: FilterKey }
+  | { kind: "shipment"; origin?: PortRecord; destination?: PortRecord; candidates: PortRecord[]; cargoTag?: "coldChain" }
   | { kind: "overview"; ports: PortRecord[] };
 
 type FieldKey =
@@ -114,11 +115,67 @@ function buildIntent(message: string, ports: PortRecord[]): Intent {
 }
 
 function safeMissing(fieldLabel: string) {
-  return `I do not have enough operational data for **${fieldLabel}** yet, but the port record can be enriched.`;
+  return `I do not have enough operational data for ${fieldLabel} yet, but the port record can be enriched.`;
 }
 
 function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord[]): string {
   const intent = buildIntent(message, ports);
+  const m = message.toLowerCase();
+
+  // Shipment-style query: from X to Y, often with cargo hints like cold-chain.
+  if (/\bship\b|\bshipping\b|\bfrom\b.*\bto\b/.test(m)) {
+    const cargoTag =
+      m.includes("milk") ||
+      m.includes("cold chain") ||
+      m.includes("cold-chain") ||
+      m.includes("reefer")
+        ? ("coldChain" as const)
+        : undefined;
+
+    const origin =
+      allPorts.find((p) => m.includes(p.id) || m.includes(p.name.toLowerCase())) ??
+      ports[0];
+
+    const wantsOman = m.includes(" oman");
+    const destCountry = wantsOman ? "Oman" : undefined;
+    const candidates = destCountry
+      ? allPorts.filter((p) => p.country === destCountry).slice(0, 6)
+      : ports.slice(0, 4);
+
+    const best = [...candidates].sort((a, b) => {
+      const aCold = /very high|high/i.test(a.coldChainCapacity) ? 2 : /medium/i.test(a.coldChainCapacity) ? 1 : 0;
+      const bCold = /very high|high/i.test(b.coldChainCapacity) ? 2 : /medium/i.test(b.coldChainCapacity) ? 1 : 0;
+      const aCong = /low/i.test(a.congestion) ? 2 : /medium/i.test(a.congestion) ? 1 : 0;
+      const bCong = /low/i.test(b.congestion) ? 2 : /medium/i.test(b.congestion) ? 1 : 0;
+      return bCold + bCong - (aCold + aCong);
+    });
+
+    if (origin && best.length) {
+      const head = best[0]!;
+      const lines: string[] = [];
+      lines.push(`Based on the available port intelligence dataset, here are grounded options for your shipment:`);
+      lines.push(`- Origin: ${origin.name} (Draft ${origin.draftDepthM}m · Congestion ${origin.congestion} · Wait ${origin.waitingHours})`);
+      lines.push(`- Destination candidates: ${destCountry ?? "matched ports in dataset"}`);
+      lines.push(``);
+      if (cargoTag === "coldChain") {
+        lines.push(`Cold-chain note: your message implies temperature-sensitive cargo. I’m prioritizing ports with higher cold-chain capacity in the dataset.`);
+        lines.push(``);
+      }
+      lines.push(`Recommended destination: ${head.name}`);
+      lines.push(`- Cold-chain capacity: ${head.coldChainCapacity} · Congestion: ${head.congestion} · Wait: ${head.waitingHours} · Draft: ${head.draftDepthM}m`);
+      if (head.routes?.length) {
+        lines.push(`- Sample connections (dataset): ${head.routes.slice(0, 3).join(" · ")}`);
+      }
+      lines.push(``);
+      lines.push(`Other viable options:`);
+      for (const p of best.slice(1, 4)) {
+        lines.push(`- ${portLine(p)} · Cold-chain: ${p.coldChainCapacity}`);
+      }
+      lines.push(``);
+      lines.push(`If you share container type (reefer/non-reefer) and required time window, I can refine using only waiting time, congestion, and capacity fields.`);
+      return lines.join("\n");
+    }
+  }
 
   if (intent.kind === "filter") {
     if (intent.filter === "lowCongestion") {
@@ -128,7 +185,7 @@ function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord
       if (!candidates.length) return safeMissing("congestion");
       const head = candidates[0]!;
       return [
-        `Based on the available port intelligence data, **${head.name}** currently shows **${head.congestion} congestion**, with an estimated waiting time of **${head.waitingHours}** and draft depth of **${head.draftDepthM}m**.`,
+        `Based on the available port intelligence data, ${head.name} currently shows ${head.congestion} congestion, with an estimated waiting time of ${head.waitingHours} and draft depth of ${head.draftDepthM}m.`,
         ``,
         `Other low-congestion ports in the dataset:`,
         candidates.map((p) => `- ${portLine(p)}`).join("\n"),
@@ -141,11 +198,11 @@ function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord
         .slice(0, 5);
       if (!candidates.length) return safeMissing("cold-chain capacity");
       return [
-        `For cold-chain cargo, these ports rank highest **based on the dataset’s cold-chain capacity field**:`,
+        `For cold-chain cargo, these ports rank highest based on the dataset’s cold-chain capacity field:`,
         candidates
           .map(
             (p) =>
-              `- **${p.name}**: ${p.coldChainCapacity} cold-chain capacity · Wait ${p.waitingHours} · Draft ${p.draftDepthM}m`,
+              `- ${p.name}: ${p.coldChainCapacity} cold-chain capacity · Wait ${p.waitingHours} · Draft ${p.draftDepthM}m`,
           )
           .join("\n"),
       ].join("\n");
@@ -157,8 +214,8 @@ function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord
     return [
       `Here’s a grounded comparison based on Cargoconnect’s port dataset:`,
       ``,
-      `- **${a.name}**: Draft ${a.draftDepthM}m · Channel ${a.channelDepthM}m · Congestion ${a.congestion} · Wait ${a.waitingHours} · Throughput ${formatTeu(a.annualThroughputTeu)}`,
-      `- **${b.name}**: Draft ${b.draftDepthM}m · Channel ${b.channelDepthM}m · Congestion ${b.congestion} · Wait ${b.waitingHours} · Throughput ${formatTeu(b.annualThroughputTeu)}`,
+      `- ${a.name}: Draft ${a.draftDepthM}m · Channel ${a.channelDepthM}m · Congestion ${a.congestion} · Wait ${a.waitingHours} · Throughput ${formatTeu(a.annualThroughputTeu)}`,
+      `- ${b.name}: Draft ${b.draftDepthM}m · Channel ${b.channelDepthM}m · Congestion ${b.congestion} · Wait ${b.waitingHours} · Throughput ${formatTeu(b.annualThroughputTeu)}`,
       ``,
       `If you tell me your cargo type (container / Ro-Ro / bulk / cold-chain) and target lane, I can recommend the better fit using only these fields.`,
     ].join("\n");
@@ -170,39 +227,48 @@ function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord
 
     switch (intent.field) {
       case "draftDepthM":
-        return `**${p.name}** draft depth is **${p.draftDepthM}m** (channel depth: **${p.channelDepthM}m**).`;
+        return `${p.name} draft depth is ${p.draftDepthM}m (channel depth: ${p.channelDepthM}m).`;
       case "channelDepthM":
-        return `**${p.name}** channel depth is **${p.channelDepthM}m** (draft at berth: **${p.draftDepthM}m**).`;
+        return `${p.name} channel depth is ${p.channelDepthM}m (draft at berth: ${p.draftDepthM}m).`;
       case "congestion":
-        return `**${p.name}** is marked as **${p.congestion}** congestion with an estimated waiting time of **${p.waitingHours}**.`;
+        return `${p.name} is marked as ${p.congestion} congestion with an estimated waiting time of ${p.waitingHours}.`;
       case "waitingHours":
-        return `**${p.name}** estimated waiting time is **${p.waitingHours}** (congestion: **${p.congestion}**).`;
+        return `${p.name} estimated waiting time is ${p.waitingHours} (congestion: ${p.congestion}).`;
       case "annualThroughputTeu":
-        return `**${p.name}** annual throughput is **${formatTeu(p.annualThroughputTeu)}** (TEU/year).`;
+        return `${p.name} annual throughput is ${formatTeu(p.annualThroughputTeu)} (TEU/year).`;
       case "coldChainCapacity":
-        return `**${p.name}** cold-chain capacity is **${p.coldChainCapacity}** in the dataset.`;
+        return `${p.name} cold-chain capacity is ${p.coldChainCapacity} in the dataset.`;
       case "routes":
         if (!p.routes?.length) return safeMissing("liner connections");
         return [
-          `**${p.name}** sample liner connections:`,
+          `${p.name} sample liner connections:`,
           p.routes.slice(0, 8).map((r) => `- ${r}`).join("\n"),
         ].join("\n");
       case "portType":
-        return `**${p.name}** port type: **${p.portType}**.`;
+        return `${p.name} port type: ${p.portType}.`;
       case "cranesSts":
-        return `**${p.name}** STS cranes: **${p.cranesSts.toLocaleString("en-US")}** (mega-max cranes: **${p.megaMaxCranes.toLocaleString("en-US")}**).`;
+        return `${p.name} STS cranes: ${p.cranesSts.toLocaleString("en-US")} (mega-max cranes: ${p.megaMaxCranes.toLocaleString("en-US")}).`;
       case "megaMaxCranes":
-        return `**${p.name}** mega-max cranes: **${p.megaMaxCranes.toLocaleString("en-US")}** (STS cranes: **${p.cranesSts.toLocaleString("en-US")}**).`;
+        return `${p.name} mega-max cranes: ${p.megaMaxCranes.toLocaleString("en-US")} (STS cranes: ${p.cranesSts.toLocaleString("en-US")}).`;
       case "berthsContainer":
-        return `**${p.name}** container berths: **${p.berthsContainer.toLocaleString("en-US")}**.`;
+        return `${p.name} container berths: ${p.berthsContainer.toLocaleString("en-US")}.`;
       case "loading":
-        return `**${p.name}** loading discipline: **${p.loading}**.`;
+        return `${p.name} loading discipline: ${p.loading}.`;
       default:
         return safeMissing("that field");
     }
   }
 
   // overview
+  if (intent.kind === "shipment") {
+    // Shipment intent is handled earlier; if it reaches here, fall through to generic guidance.
+    return [
+      `I can help with port intelligence for shipment planning using only the dataset fields (draft, congestion, waiting time, capacity, routes, cold-chain).`,
+      ``,
+      `Try: “Ship reefer cargo from Rotterdam to Oman” or “Which Oman port has the lowest congestion?”`,
+    ].join("\n");
+  }
+
   if (!intent.ports.length) {
     return [
       `I can answer port questions using Cargoconnect’s port intelligence dataset (draft, congestion, waiting time, capacity, routes).`,
@@ -213,10 +279,10 @@ function renderAnswer(message: string, ports: PortRecord[], allPorts: PortRecord
 
   const p = intent.ports[0]!;
   return [
-    `**${p.name}** — ${p.gatewayLabel}`,
-    `- Draft: **${p.draftDepthM}m** (channel: ${p.channelDepthM}m)`,
-    `- Congestion: **${p.congestion}** · Waiting: **${p.waitingHours}**`,
-    `- Throughput: **${formatTeu(p.annualThroughputTeu)}** · STS cranes: ${p.cranesSts.toLocaleString("en-US")}`,
+    `${p.name} — ${p.gatewayLabel}`,
+    `- Draft: ${p.draftDepthM}m (channel: ${p.channelDepthM}m)`,
+    `- Congestion: ${p.congestion} · Waiting: ${p.waitingHours}`,
+    `- Throughput: ${formatTeu(p.annualThroughputTeu)} · STS cranes: ${p.cranesSts.toLocaleString("en-US")}`,
     p.routes?.length ? `- Sample connections: ${p.routes.slice(0, 3).join(" · ")}` : ``,
   ]
     .filter(Boolean)
